@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <title>Title</title>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+                integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+                crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <style>
+            .box {
+                position: absolute;
+                user-select: none;
+                transform: translate(-50%, -50%);
+            }
+
+            .resize-handler {
+                height: 10px;
+                width: 10px;
+                background-color: #0055ff;
+                position: absolute;
+                border-radius: 100px;
+                border: 1px solid #ffffff;
+                user-select: none;
+                display: none;
+            }
+            .resize-handler:hover {background-color: #0000cc;}
+            .resize-handler.rotate {cursor: url('https://findicons.com/files/icons/1620/crystal_project/16/rotate_ccw.png'), auto;}
+
+            :root {
+                /* id-1 */
+                --left-1: 200px;
+                --top-1: 200px;
+                --width-1: 200px;
+                --height-1: 200px;
+                --bg-1: #ffff00cc;
+                --zi-1: 1;
+
+                /* id-2 */
+                --left-2: 500px;
+                --top-2: 200px;
+                --width-2: 300px;
+                --height-2: 200px;
+                --bg-2: #0050ffcc;
+                --zi-2: 2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" data-id="1" style="left: var(--left-1); top: var(--top-1); z-index: var(--zi-1); width: var(--width-1); height: var(--height-1); background-color: var(--bg-1);"></div>
+        <div class="box" data-id="2" style="left: var(--left-2); top: var(--top-2); z-index: var(--zi-2); width: var(--width-2); height: var(--height-2); background-color: var(--bg-2);"></div>
+    </body>
+    <script src="box-modeling.js"></script>
+    <script>
+        $('.box').boxModeling({
+            rotate: true,
+            resize: true,
+            move: true,
+        });
+    </script>
+</html>
